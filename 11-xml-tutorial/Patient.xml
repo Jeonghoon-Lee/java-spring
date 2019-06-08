@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+	Pay attention where the id is defined in line 11 which is an attribute for Patient not a nested element
+	xsi:schemaLocation="http://www.mydomain.com/Patient Patient.xsd		Path to XSD file 
+	
+	Change the values to see different errors
+-->
+<tns:patient 
+	xmlns:tns="http://www.mydomain.com/Patient"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mydomain.com/Patient Patient.xsd " id="123">
+
+	<tns:name>tns:name</tns:name>
+	<tns:age>12</tns:age>
+	<tns:dob>2001-01-01</tns:dob>
+	<tns:email>hoon22.lee@gmail.com</tns:email>
+	<tns:email>123@hotmail.com</tns:email>
+	<tns:gender>F</tns:gender>
+	<tns:phone>1234566454</tns:phone>
+
+	<tns:payment>
+		<tns:insurance>
+			<tns:limit>1000</tns:limit>
+			<tns:provider>Blue Cross</tns:provider>
+		</tns:insurance>
+	</tns:payment>
+</tns:patient>
