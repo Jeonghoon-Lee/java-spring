@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.mydomain.com/Shopping"
+	xmlns:tns="http://www.mydomain.com/Shopping"
+	elementFormDefault="qualified">
+
+	<element name="address" type="tns:Address" />
+
+	<complexType name="Address">
+		<sequence>
+			<element name="number" type="tns:String6Chars" />
+			<element name="streetAddress" type="tns:String25Chars" />
+			<element name="city" type="string" />
+
+			<!-- state is optional -->
+			<element name="state" type="string" minOccurs="0"/>
+			
+			<element name="country" type="string" />
+			<element name="zipcode" type="tns:ZipCode" />
+		</sequence>
+
+	</complexType>
+
+	<simpleType name="String6Chars">
+		<restriction base="string">
+			<maxLength value="6" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="String25Chars">
+		<restriction base="string">
+			<maxLength value="25" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="ZipCode">
+		<restriction base="string">
+			<pattern value="[0-9A-Z]*"></pattern>
+		</restriction>
+	</simpleType>
+
+</schema>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.mydomain.com/Shopping"
+	xmlns:tns="http://www.mydomain.com/Shopping"
+	elementFormDefault="qualified">
+
+	<!-- include Address.xsd file -->
+	<include schemaLocation="Address.xsd"/>
+
+	<element name="customer" type="tns:Customer" />
+
+	<complexType name="Customer">
+		<sequence>
+			<element name="name" type="tns:String15Chars" />
+			<element name="family" type="tns:String15Chars" />
+			<element name="birthdate" type="date" />
+					
+			<!-- maxOccurs="1 this tag only can appear one time -->
+			<element name="gender" type="tns:Gender" maxOccurs="1"/>
+			
+			<!-- minOccurs="0" make this field optional -->
+			<element name="phone" type="string" minOccurs="0" />
+
+			<!-- maxOccurs="unbounded" any number of appearance is acceptable -->
+			<element name="email" type="string" maxOccurs="unbounded" />
+			
+			<!-- using Address type from Address.xsd -->
+ 			<element name="address" type="tns:Address" />
+			
+			<element name="payment" type="tns:PaymentType" />
+		</sequence>
+
+		<attribute name="id" type="tns:Id" use="required" />		
+	</complexType>
+
+	<complexType name="PaymentType">
+		<!-- all means all elements are required -->
+		<all>
+			<element name="typeOfcard" type="tns:CardType" />
+			<element name="cardNumber" type="tns:CardNumber"/>
+		</all>
+	</complexType>
+
+	<!-- simpleType means does not have nested elements -->
+	<simpleType name="Id">
+		<restriction base="int">
+			<pattern value="[0-9]*"></pattern>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="String15Chars">
+		<restriction base="string">
+			<maxLength value="15" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="Gender">
+		<restriction base="string">
+			<enumeration value="M" />
+			<enumeration value="F" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="CardType">
+		<restriction base="string">
+			<enumeration value="Master" />
+			<enumeration value="Visa" />
+			<enumeration value="Interact" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="CardNumber">
+		<restriction base="string">
+			<minLength value="16" />
+			<maxLength value="16" />		
+		</restriction>
+	</simpleType>
+
+
+</schema>

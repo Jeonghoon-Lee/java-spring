@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tns:customer 
+	xmlns:tns="http://www.mydomain.com/Shopping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mydomain.com/Shopping Customer.xsd " id="123">
+
+	<tns:name>Jeonghoon</tns:name>
+	<tns:family>Lee</tns:family>
+	<tns:birthdate>2001-01-01</tns:birthdate>
+	<tns:gender>M</tns:gender>
+
+	<tns:phone>123456789</tns:phone>
+
+	<tns:email>hoon22.lee@gmail.com</tns:email>
+	<tns:email>jeonghoon@johnabbottcollege.net</tns:email>
+
+	<tns:address>
+		<tns:number>1234</tns:number>
+		<tns:streetAddress>Grand Boulevard</tns:streetAddress>
+		<tns:city>Montreal</tns:city>
+		<tns:state>Quebec</tns:state>
+		<tns:country>Canada</tns:country>
+		<tns:zipcode>H4B2Y1</tns:zipcode>
+	</tns:address>
+
+	<tns:payment>
+		<tns:typeOfcard>Master</tns:typeOfcard>
+		<tns:cardNumber>1234567890123456</tns:cardNumber>
+	</tns:payment>
+</tns:customer>
